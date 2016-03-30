@@ -4,6 +4,7 @@
   "description": "Synchronizable state for WebRTC.",
   "license": "MIT",
   "author": "Robbie Weaver",
+  "main": "./collection.js",
   "dependencies": {
     "ampersand-collection": "^1.6.1",
     "ampersand-state": "^5.0.0",
