@@ -9,7 +9,7 @@ const RTCCollection = AndCollection.extend ({
 
     props: {
         counter: [ 'number', true, 0 ],
-    }
+    },
 
     removed: null,
     initialize: function () {
