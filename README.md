@@ -8,10 +8,11 @@ Modified to prevent mutation and force all properties to be final.
 ### `props`
 - `uuid` auto-generated UUID to keep track of models
 - `counter` a running counter for which-came-first sorting
-- `creator` some kind of user identifier to resolve `counter` conflicts
+- `creator` user identifier to resolve simultaneous edits from different users
+- `created` timestamp to keep additions from a single user in order
 
 ### `derived`
-- `sort` concatenation of `counter` and `creator` for sorting
+- `sort` concatenation of `counter`, `creator` and `created` for sorting
 
 
 # RTCCollection (extends ampersand-collection)

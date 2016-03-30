@@ -7,6 +7,10 @@ const RTCCollection = AndCollection.extend ({
     model: RTCState,
     mainIndex: 'uuid',
 
+    props: {
+        counter: [ 'number', true, 0 ],
+    }
+
     removed: null,
     initialize: function () {
         this.removed = {}
@@ -14,6 +18,10 @@ const RTCCollection = AndCollection.extend ({
     // prevent adding an already-removed model
     _prepareModel: function (attrs) {
         if (this.removed [attrs.uuid]) return false
+
+        if (!attrs.counter) {
+            attrs.counter = this.counter
+        }
 
         return AndCollection.prototype._prepareModel.apply (this, arguments)
     },

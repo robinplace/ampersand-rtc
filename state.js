@@ -4,15 +4,14 @@ const UUID = require ('node-uuid')
 
 const RTCState = AndState.extend ({
     props: {
-        uuid: [ 'string', true, function () {
-            return UUID.v4 ()
-        } ],
+        uuid:    [ 'string', true, () => UUID.v4 () ],
         counter: [ 'number', true ],
         creator: [ 'string', true ],
+        created: [ 'number', true, () => Date.now () ],
     },
     derived: {
-        sort: { deps: [ 'number', 'creator' ], function () {
-            return this.number + ' ' + this.creator
+        sort: { deps: [ 'number', 'creator', 'created' ], function () {
+            return this.number+' '+this.creator+' '+this.created
         } },
     },
     // don't allow updates
